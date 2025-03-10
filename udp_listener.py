@@ -29,7 +29,7 @@ def main():
             ready_socks, _, _ = select.select([sock_ipv4, sock_ipv6], [], [])
             for sock in ready_socks:
                 data, addr = sock.recvfrom(4096)
-                print(f"Received packet from {addr}", file=sys.stderr)
+                # print(f"Received packet from {addr}", file=sys.stderr)
                 # Replace null bytes with newlines
                 data = data.replace(b'\x00', b'\n')
                 # Ensure the packet is terminated by a single newline
