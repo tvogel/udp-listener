@@ -31,6 +31,34 @@ This will start the script and listen for UDP packets on port 12345.
 
 - Python 3.x
 
-## License
+# shelly-log
+
+The `shelly-log` script allows you to log UDP packets to a file with timestamps.
+
+## Usage
+
+To run the script, use the following command:
+
+```sh
+./shelly-log <port> <file>
+```
+
+Replace `<port>` with the port number you want to listen on and `<file>` with the log file path.
+
+## Example
+
+```sh
+./shelly-log 12345 /path/to/logfile
+```
+
+This will start the script, listen for UDP packets on port 12345, and log the packets to the specified file with timestamps.
+
+## Requirements
+
+- `ts` from the `moreutils` package
+- `rotatelogs` from the `apache2-utils` package
+
+
+# License
 
 This project is licensed under the MIT License.
