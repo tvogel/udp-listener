@@ -1,0 +1,9 @@
+#!/bin/bash
+PORT=${1}
+FILE=${2}
+
+if [ -z "$PORT" -o -z "$FILE" ]; then
+  echo "Usage: $0 <port> <file>"
+fi
+
+udp_listener.py $PORT | ts %FT%H:%M:%.S%z | rotatelogs $FILE.%Y-%m-%d $((7*24*60*69))
