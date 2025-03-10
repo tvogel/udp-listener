@@ -6,4 +6,4 @@ if [ -z "$PORT" -o -z "$FILE" ]; then
   echo "Usage: $0 <port> <file>"
 fi
 
-udp_listener.py $PORT | ts %FT%H:%M:%.S%z | rotatelogs -p compress_log.sh $FILE.%Y-%m-%d $((7*24*60*69))
+udp_listener.py $PORT | ts %FT%H:%M:%.S%z | rotatelogs -l -p $(which compress_log.sh) $FILE.%Y-%m-%d $((7*24*60*60))
